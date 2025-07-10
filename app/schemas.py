@@ -30,4 +30,4 @@ class Product(BaseModel):
     # This special Config class enables "ORM Mode".
     # It allows Pydantic to read data directly from our SQLAlchemy model objects.
     class Config:
-        orm_mode = True
+        from_attributes = True

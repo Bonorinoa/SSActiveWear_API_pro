@@ -8,6 +8,8 @@ from pydantic_settings import BaseSettings
 # It's case-insensitive, so DATABASE_URL in your .env file maps to database_url here.
 class Settings(BaseSettings):
     database_url: str
+    ss_username: str  
+    ss_password: str
 
     class Config:
         env_file = ".env"

@@ -27,3 +27,15 @@ def get_products(
 
     # Apply pagination and execute the query
     return query.offset(skip).limit(limit).all()
+
+def get_filter_options(db: Session):
+    categories = db.query(models.Product.baseCategory).distinct().all()
+    colors = db.query(models.Product.colorName).distinct().all()
+    brands = db.query(models.Product.brandName).distinct().all()
+    
+    # The queries return a list of tuples, so we extract the first element of each tuple.
+    return {
+        "categories": sorted([c[0] for c in categories if c[0] is not None]),
+        "colors": sorted([c[0] for c in colors if c[0] is not None]),
+        "brands": sorted([b[0] for b in brands if b[0] is not None])
+    }
