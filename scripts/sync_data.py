@@ -42,8 +42,6 @@ def fetch_and_load_data():
         print("Combining and preparing data...")
         # Merge product data with style data
         combined_df = pd.merge(products_df, styles_df, on='styleID', how='left')
-        # Ensure column names match our database model exactly
-        combined_df.rename(columns={'piecePrice': 'pieceprice'}, inplace=True)
         # Handle potential missing data for boolean field
         combined_df['sustainableStyle'] = combined_df['sustainableStyle'].fillna(False)
         print("✅ Data combined.")
