@@ -1,7 +1,7 @@
 # app/schemas.py
 
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 # This is our Pydantic model for the Product data.
 # It defines the shape and data types for API responses.
@@ -29,5 +29,25 @@ class Product(BaseModel):
 
     # This special Config class enables "ORM Mode".
     # It allows Pydantic to read data directly from our SQLAlchemy model objects.
+    class Config:
+        from_attributes = True
+
+class ProductDisplay(BaseModel):
+    # Common fields, same for all sizes
+    styleID: int
+    brandName: str
+    title: str
+    baseCategory: str
+    colorName: str
+    description: Optional[str] = None
+    sustainableStyle: bool
+    colorFrontImage: Optional[str] = None
+    colorBackImage: Optional[str] = None
+
+    # New, aggregated fields
+    startingPrice: float
+    totalStock: int
+    availableSizes: List[str]
+
     class Config:
         from_attributes = True
