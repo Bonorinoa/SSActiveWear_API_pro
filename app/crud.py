@@ -25,6 +25,8 @@ def get_products(
         models.Product.sustainableStyle,
         models.Product.colorFrontImage,
         models.Product.colorBackImage,
+        models.Product.colorSwatchImage,
+        models.Product.colorSwatchTextColor,
         # Aggregate Functions:
         func.min(models.Product.piecePrice).label("startingPrice"),
         func.sum(models.Product.qty).label("totalStock"),
@@ -51,7 +53,9 @@ def get_products(
         models.Product.description,
         models.Product.sustainableStyle,
         models.Product.colorFrontImage,
-        models.Product.colorBackImage
+        models.Product.colorBackImage,
+        models.Product.colorSwatchImage,
+        models.Product.colorSwatchTextColor
     )
 
     # Apply pagination and execute the query

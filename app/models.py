@@ -30,3 +30,5 @@ class Product(Base):
     sustainableStyle = Column(Boolean, default=False)
     colorFrontImage = Column(String, nullable=True)
     colorBackImage = Column(String, nullable=True)
+    colorSwatchImage = Column(String, nullable=True)
+    colorSwatchTextColor = Column(String, nullable=True)

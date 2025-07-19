@@ -43,8 +43,10 @@ class ProductDisplay(BaseModel):
     sustainableStyle: bool
     colorFrontImage: Optional[str] = None
     colorBackImage: Optional[str] = None
+    colorSwatchImage: Optional[str] = None
+    colorSwatchTextColor: Optional[str] = None
 
-    # New, aggregated fields
+    # aggregated fields
     startingPrice: float
     totalStock: int
     availableSizes: List[str]

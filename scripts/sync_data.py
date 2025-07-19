@@ -35,7 +35,7 @@ def fetch_and_load_data():
         products_response.raise_for_status()
         products_df = pd.DataFrame(products_response.json())
         # Keep only the columns that match our database model
-        products_df = products_df[['sku', 'styleID', 'brandName', 'colorName', 'sizeName', 'piecePrice', 'qty', 'colorFrontImage', 'colorBackImage']]
+        products_df = products_df[['sku', 'styleID', 'brandName', 'colorName', 'sizeName', 'piecePrice', 'qty', 'colorFrontImage', 'colorBackImage', 'colorSwatchImage', 'colorSwatchTextColor']]
         print(f"✅ Found {len(products_df)} products.")
 
         # 3. Combine and Prepare Data
