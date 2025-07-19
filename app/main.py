@@ -28,7 +28,7 @@ def read_root():
     return {"message": "Welcome to the SS Activewear Catalog API!"}
 
 
-@app.get("/api/products", response_model=List[schemas.Product])
+@app.get("/api/products", response_model=List[schemas.ProductDisplay])
 def read_products(
     category: str = None,
     color: str = None,
